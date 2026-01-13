@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Transaction</title>
+    <style>
+        body { 
+            font-family: Verdana, Geneva, Tahoma, sans-serif; 
+            margin: 50px; 
+            margin-top: 50px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+        .container{
+             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: scale(1.2);
+        }
+        input, select { 
+            display: block;
+            margin: 10px 0; 
+            padding: 5px; 
+            width: 200px; 
+            background-color: black;
+            color: white;
+        }
+        input:hover,select:hover{
+            border-color: white;
+        }
+         
+        .add{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            width: 174px;
+            height: 44px;
+            border-radius: 30px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            padding: 4px;
+            border-style: solid    
+        }
+         
+        .add:hover{
+            background-color: rgb(30, 215, 96);
+        }
+       .home{
+            margin-top: 10px;
+            margin-right: 28px;
+            border-radius: 5px;
+            transform: scale(1.7);
+            cursor: pointer;
+            padding-bottom: 3px;
+            border: 0;
+            color: white;
+            background-color: black;
+            transition: background-color 0.3s;
+        }
+        .home:hover{
+            background-color: rgb(30, 215, 96);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Transaction</h2>
+    <form method="POST">
+        <label>Type</label>
+        <select name="type">
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>   
+        </select>
+        <label>Category</label>
+         <select name="category">
+            <optgroup label="Income">
+                <option value="salary">Salary</option>
+                <option value="gift">Gift</option>
+                <option value="Rental Income">Rental Income</option>
+            </optgroup>
+            <optgroup label="Expense">
+                <option value="Education">Education</option>
+                <option value="Medicine">Medicine</option>
+                <option value="Food">Food</option>
+                <option value="Rental">Rental</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Personal">Personal</option>
+                </optgroup>
+        </select>
+        <label>Amount</label>
+        <input type="number" name="amount" step="0.01" required><br>
+        <label>Note</label> <input type="text" name="note"><br>
+        <button type="submit" class="add">Add Transaction</button>
+    </form>
+        <a href="{{url_for('Menu')}}"><button class="home">🏠︎</button></a>
+
+    </div>
+    
+</body>
+</html>
+

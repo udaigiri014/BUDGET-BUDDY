@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Transactions</title>
+    <style>
+        table{
+            
+            color: black;
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 20px auto;
+        }
+        body { 
+            font-family: verdana, Geneva, Tahoma, sans-serif;
+            margin: 50px; 
+            text-align: center; 
+            margin-top: 50px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+        td{
+            color: white;
+        }
+        th, td { border: 1px solid rgb(30, 215, 96); 
+            padding: 8px; 
+            text-align: center; 
+        }
+        th { 
+            border: black;
+            background-color: rgb(30, 215, 96) 
+        }
+        .clear{
+            width: 174px;
+            height: 44px;
+            border-radius: 30px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-top: 4px;
+            border-style: solid;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            
+}  
+       
+        .clear:hover{
+            background-color: rgb(30, 215, 96);
+        }
+        .home{
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 0px;
+            transform: scale(1.7);
+            cursor: pointer;
+            padding-bottom: 3px;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 12px;
+            color: white;
+            background-color: black;
+            transition: background-color 0.3s;
+        }
+        .home:hover{
+            background-color: rgb(30, 215, 96);
+            color: black;
+        }
+        .delete{
+            background-color: black;
+            color: #ec0808;
+            border-style:solid ;
+            border-radius: 10px; 
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: small;
+            font-family: Verdana, Geneva, Tahoma, sans-serif; 
+
+        }
+        .delete:hover{
+            background-color: #ec0808;
+            color: aliceblue;
+
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            gap: 400px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">All Transactions</h2>
+    <table style="background-color:rgb(0, 0, 0);">
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Note</th>
+            <th>Delete</th>
+        </tr>
+  
+        {% for row in rows %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>₹{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+            <td><a style="color: #c91123;" href="{{url_for('delete',id=row[0])}}"><button class="delete">Delete</button></a></td>
+        </tr>
+        
+        {% endfor %}
+    </table>
+    <div class="container">
+        <div style="text-align:center;" ><a href="/clearall"><button class="clear">Clear all</button> </a></div>
+        <div><div  id="b2"><a href="/add"  ><button class="clear">Add Transaction</button> </a></div></div>
+    </div>
+    
+    <div style="text-align:center;"><a href="{{url_for('Menu')}}"><button class="home">🏠︎</button></a></div>
+</body>
+</html>
